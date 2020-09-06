@@ -9,11 +9,14 @@ function setup() {
   background(0);
   numberOfColors = 10;
   ellipseRadius = 5;
+  
+  //split the screen into different parts (i parts) and assign each rectange to a certain color. Color spectrun split into i parts --> for brush color
   for (let i = 0; i < numberOfColors; i++){
     fill((360/numberOfColors)*i, 100, 100)
     rect(width*(i/numberOfColors), 0, width*((1)/numberOfColors) - 1, height*(1/8));
   }
   
+  //split the screen into different parts (i parts) and assign each rectange to a certain color. Color spectrun split into i parts --> for canvas color
   for (let i = 0; i < numberOfColors; i++){
     fill((360/numberOfColors)*i, 100, 100)
     rect(width*(i/numberOfColors), height*(7/8), width*((1)/numberOfColors) - 1, height);
@@ -23,11 +26,14 @@ function setup() {
 function draw(){ 
   fill(colorBrushFunction(), 100, 100);
   colorBackgroundFunction();
+  
+  //draw an ellipse if in a certain area of the canvas (makes sure that the drawings dont happen on the same area where the brush/canvas color chooser is
   if (mouseIsPressed && mouseY < (height*(7/8)*2 + ellipseRadius)/2 && mouseY > (height*(1/8)*2 + ellipseRadius)/2){
     ellipse(mouseX, mouseY, ellipseRadius);
   }
 }
 
+//returns the color value when the person clicks on that area on the canvas color chooser --> brush color
 function colorBrushFunction(){
   if (mouseIsPressed){
     for (let j = 0; j < numberOfColors; j++){
@@ -38,6 +44,7 @@ function colorBrushFunction(){
   }
 }
 
+//returns the color value when the person clicks on that area on the canvas color chooser --> canvas color
 function colorBackgroundFunction(){
   if (mouseIsPressed){
     for (let j = 0; j < numberOfColors; j++){
