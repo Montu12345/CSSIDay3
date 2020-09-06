@@ -42,6 +42,7 @@ function draw() {
   ellipse(mouseX, mouseY, 50);
   text("Flip the switch", 20, 20);
   
+  //when the mouse moves to a certain area, change the canvas to the certain mode
   //mouseX>width/2 ? nightMode() : dayMode();
   //mouseY>height/2 ? nightMode() : dayMode();
   if (mouseX > width/2){
@@ -56,6 +57,7 @@ function draw() {
   }
 }
 
+//turns the canvas into the light colors
 function dayMode(){
   backgroundColor = color(95);
   textColor = color(20);
@@ -63,14 +65,15 @@ function dayMode(){
   color2 = color(200, globalS, globalB);
 }
 
+//turns the canvas into the dark colors
 function nightMode(){
   backgroundColor = color(20);
   textColor = color(95);
   color1 = color(200, globalS, globalB);
   color2 = color(0, globalS, globalB);
-  
 }
 
+//turns the canvas into the afternoon colors
 function afternoonMode(){
   backgroundColor = color(0, 0, 20);
   textColor = color(9);
@@ -79,6 +82,7 @@ function afternoonMode(){
   
 }
 
+//draws a line at the center of the canvas
 function drawCenterLine() {
   // This function will turn stroke on, draw the line, and then turn stroke
   // back off.
